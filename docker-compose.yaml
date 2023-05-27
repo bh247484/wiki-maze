@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:15.2
+    env_file:
+      - ./pg.env
+    volumes:
+      - ./psql-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  vite-react-app:
+    container_name: vite-react-app
+    ports:
+      - '5173:5173'
+    build:
+      context: ./vite-react-app
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./vite-react-app:/app
+      - /app/node_modules
+  asp-api:
+    container_name: asp-api
+    build:
+      context: ./asp-api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./asp-api:/app
+    ports:
+      - '5000:5000'
+      - '5001:5001'
+  rails-api:
+    container_name: rails-api
+    build:
+      context: ./rails-api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./rails-api:/app
+    ports:
+      - '3000:3000'
