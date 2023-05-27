@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import useInterval from './utils/useInterval';
+import './App.css';
+import Setup from './components/setup';
+import Trial from './components/trial';
+import GameReport from './components/game-report';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [phase, setPhase] = useState<number>(1);
+  const [poles, setPoles]= useState<string[]>([]);
+  const [finalPath, setFinalPath] = useState<string[]>([]);
+  const [time, setTime] = useState<number>(0);
+
+  useInterval(
+    () => {
+      setTime((time: number) => time + 1);
+    },
+    phase === 2 ? 1000 : null
+  );
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      {
+        {
+          1: <Setup setPhase={setPhase} setPoles={setPoles} />,
+          2: (
+            <Trial
+              start={poles[0]}
+              setFinalPath={setFinalPath}
+              setPhase={setPhase}
+              time={time}
+              goal={poles[1]}
+            />
+          ),
+          3: <GameReport time={time} finalPath={finalPath} />,
+        }[phase]
+      }
+    </div>
+  );
 }
 
-export default App
+export default App;
