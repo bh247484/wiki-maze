@@ -1,6 +1,12 @@
+using asp_net_app.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var connection = builder.Configuration.GetConnectionString("Default");
+
+builder.Services.AddDbContext<ApiDbContext>(options => options.UseNpgsql(connection));
 
 builder.Services.AddCors(options =>
 {
