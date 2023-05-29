@@ -22,6 +22,8 @@ services:
     build:
       context: ./asp-api
       dockerfile: Dockerfile.dev
+    environment:
+      - CONNECTIONSTRINGS__DEFAULT=User ID=postgres;Password=postgres;Host=db;Port=5432;Database=mono-db;
     volumes:
       - ./asp-api:/app
     ports:
