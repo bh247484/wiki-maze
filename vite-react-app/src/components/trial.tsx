@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import ArticleLink from './article-link';
 import ArticleNode from './article-node';
 import Clock from './clock';
+import { calculateStrokes } from '../utils/utils';
 
 interface IProps {
   goal: string;
   setFinalPath: (finalPath: string[]) => void;
   setPhase: (phase: number) => void;
+  setStrokes: (strokes: number) => void,
   start: string;
   time: number;
 }
@@ -15,6 +17,7 @@ export default function Trial({
   goal,
   setFinalPath,
   setPhase,
+  setStrokes,
   start,
   time,
 }: IProps) {
@@ -34,6 +37,7 @@ export default function Trial({
     }
     if (current === goal) {
       setFinalPath(path);
+      setStrokes(calculateStrokes(time, path.length));
       setPhase(3);
     }
   }, [current]);
