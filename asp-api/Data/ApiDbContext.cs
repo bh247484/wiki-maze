@@ -12,5 +12,6 @@ public class ApiDbContext : DbContext {
   }
 
   public DbSet<Test> Tests { get; set; }
+  public DbSet<HighScore> HighScores { get; set; }
   
 }
