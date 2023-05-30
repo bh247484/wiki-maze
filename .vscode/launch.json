@@ -15,7 +15,7 @@
       "pipeTransport": {
           "pipeCwd": "${workspaceRoot}",
           "pipeProgram": "docker",
-          "pipeArgs": ["exec", "-i", "asp-api"],
+          "pipeArgs": ["exec", "-i", "wm-asp-api"],
           "quoteArgs": false,
           "debuggerPath": "/vsdbg/vsdbg"
       }
