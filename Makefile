@@ -8,3 +8,9 @@ psql-up:
 
 asp-dev:
 	docker compose up asp-api
+
+asp-migrate:
+	docker-compose exec asp-api dotnet ef database update
+
+asp-shell:
+	docker-compose exec asp-api sh
