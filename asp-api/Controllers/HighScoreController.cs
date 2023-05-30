@@ -14,6 +14,7 @@ public class HighScoreController : ControllerBase
     public List<string> path { get; set; } = default!;
     public string name { get; set; } = default!;
     public int seconds { get; set; } = default!;
+    public int strokes { get; set; } = default!;
   }
 
   public HighScoreController(ApiDbContext context)
@@ -36,7 +37,7 @@ public class HighScoreController : ControllerBase
       Path = scoreParams.path,
       Name = scoreParams.name,
       Seconds = scoreParams.seconds,
-      Strokes = this.CalculateStrokes(scoreParams.seconds, scoreParams.path.Count)
+      Strokes = scoreParams.strokes
     };
 
     // If there's already 10 high scores, remove the lowest score.
