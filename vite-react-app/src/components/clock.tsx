@@ -7,10 +7,6 @@ export default function Clock({ time }: IProps) {
   const seconds: string = (time % 60).toString().padStart(2, '0');
 
   return (
-    <div className="clock-wrapper">
-      <p>
-        {minutes} : {seconds}
-      </p>
-    </div>
+    <span className="clock-wrapper">{minutes}:{seconds}</span>
   );
 }

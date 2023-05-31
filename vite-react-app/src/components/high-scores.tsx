@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import ArticleLink from './article-link';
+import Clock from './clock';
+import styles from './high-scores.module.css';
 
 interface IProps {
   finalPath: string[];
@@ -99,6 +102,7 @@ export default function HighScores({ finalPath, setPhase, strokes, time }: IProp
         <h2>New High Score!</h2>
           <p>Enter Your Name</p>
           <input
+            className={styles.input}
             maxLength={3}
             type="text"
             value={name}
@@ -114,17 +118,31 @@ export default function HighScores({ finalPath, setPhase, strokes, time }: IProp
     return(
       <div className="high-scores-wrapper">
         <h1>High Scores</h1>
+        <button onClick={() => setPhase(1)}>New Game</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Strokes</th>
+              <th>Time</th>
+              <th>Start</th>
+              <th>End</th>
+            </tr>
+          </thead>
+          <tbody>
         {
           highScores.map(({ name, path, seconds, strokes }) => (
-            <div className="score-wrapper">
-              <p>{name}</p>
-              <p>{path[0]} to {path[path.length - 1]}</p>
-              <p>{seconds}</p>
-              <p>{strokes}</p>
-            </div>
+            <tr className="score-wrapper">
+              <td>{name}</td>
+              <td>{strokes}</td>
+              <td><Clock time={seconds}/></td>
+              <td><ArticleLink article={path[0]}/></td>
+              <td><ArticleLink article={path[path.length - 1]}/></td>
+            </tr>
           ))
         }
-        <button onClick={() => setPhase(1)}>New Game</button>
+        </tbody>
+        </table>
       </div>
     );
   }

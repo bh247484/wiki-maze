@@ -1,3 +1,9 @@
 .column {
   max-width: 300px;
 }
+
+.input {
+  font-size: 16px;
+  height: 32px;
+  margin-bottom: 8px;
+}

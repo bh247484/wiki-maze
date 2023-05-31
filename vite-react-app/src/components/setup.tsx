@@ -49,6 +49,7 @@ export default function Setup({ setPhase, setPoles }: IProps) {
           </button>
           <p>Or paste article link below.</p>
           <input
+            className={styles.input}
             type="text"
             value={startLink}
             onChange={({ target: { value } }) => setStartLink(value)}
@@ -79,6 +80,7 @@ export default function Setup({ setPhase, setPoles }: IProps) {
           </button>
           <p>Or paste article link below.</p>
           <input
+            className={styles.input}
             onChange={({ target: { value } }) => setEndLink(value)}
             type="text"
             value={endLink}

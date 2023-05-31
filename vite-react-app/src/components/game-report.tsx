@@ -1,4 +1,5 @@
 import { canonizeTitle } from '../utils/utils';
+import ArticleLink from './article-link';
 import Clock from './clock';
 import styles from './game-report.module.css';
 
@@ -13,22 +14,20 @@ export default function GameReport({ finalPath, setPhase, strokes, time }: IProp
   return (
     <div className="game-report-wrapper">
       <h1>Winner!</h1>
-      <h2>
-        Cleared in <Clock time={time} />
-      </h2>
-      <h2>Total Strokes: {strokes}</h2>
-      <p>Stroke Formula</p>
-      <p>Total steps + stroke time penalty for every 30 seconds.</p>
-      <h4>Here's Your Path to Victory</h4>
-      <h4>
-        You reached the goal in {finalPath.length - 1} total
+      <p>
+        You reached the goal in <strong><Clock time={time} /></strong> with <strong>{finalPath.length - 1}</strong> total
         {finalPath.length - 1 === 1 ? ' step' : ' steps'}.
-      </h4>
+      </p>
+      <h3>Total Strokes: {strokes}</h3>
+      <p className={styles.minip}>Strokes formula: Total steps plus 1 for every 30 seconds taken.</p>
+      {/* <p>Stroke Formula</p>
+      <p>Total steps + stroke time penalty for every 30 seconds.</p> */}
+      <h4>Path to Victory</h4>
       <div className={styles.path}>
         {finalPath.map((articleTitle, index) => (
           <>
-            <p>{canonizeTitle(articleTitle)}</p>
-            {index !== finalPath.length - 1 ? <p>↓</p> : null}
+            <p className={styles['node-wrapper']}><ArticleLink article={articleTitle} /></p>
+            {index !== finalPath.length - 1 ? <p className={styles.arrow}>↓</p> : null}
           </>
         ))}
       </div>

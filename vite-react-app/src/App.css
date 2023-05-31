@@ -92,3 +92,20 @@
   gap: 4px;
   max-width: 200px;
 }
+
+table {
+  margin-top: 16px;
+  padding: 8px;
+}
+
+th {
+  border-bottom: 1px solid white;
+  padding: 8px;
+}
+
+td {
+  border: 1px solid #ffffff2e;
+  max-width: 140px;
+  padding: 8px;
+  text-align: center;
+}

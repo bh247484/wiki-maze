@@ -101,7 +101,7 @@ export default function Trial({
       <div className={styles.header}>
         <div className={styles['header-col-1']}>
           <h3>Game Clock</h3>
-          <Clock time={time} />
+          <p><Clock time={time} /></p>
           <button onClick={() => setPhase(1)}>New Game</button>
         </div>
         <div className={styles['header-col-2']}>
