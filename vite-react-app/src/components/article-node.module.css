@@ -1,0 +1,15 @@
+.wrapper {
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #ffffff36;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 150px;
+  padding: 6px;
+}
+
+.button {
+  padding: 4px;
+  width: fit-content;
+}

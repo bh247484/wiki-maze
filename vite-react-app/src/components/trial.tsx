@@ -3,6 +3,7 @@ import ArticleLink from './article-link';
 import ArticleNode from './article-node';
 import Clock from './clock';
 import { calculateStrokes } from '../utils/utils';
+import styles from './trial.module.css';
 
 interface IProps {
   goal: string;
@@ -97,23 +98,31 @@ export default function Trial({
   return (
     <div className="trial-wrapper">
       <h1>Trial</h1>
-      <h2>Game Clock</h2>
-      <Clock time={time} />
-      <button onClick={() => setPhase(1)}>New Game</button>
-      <h4>
-        Start: <ArticleLink article={start} />
-      </h4>
-      <h4>
-        Goal: <ArticleLink article={goal} />
-      </h4>
-      <h3>
-        Current: <ArticleLink article={current} />
-      </h3>
-      {path.length > 1 ? (
-        <button onClick={() => backUp()}>Go Back</button>
-      ) : null}
-      <h3>Nodes...</h3>
-      <div className="nodes-container">
+      <div className={styles.header}>
+        <div className={styles['header-col-1']}>
+          <h3>Game Clock</h3>
+          <Clock time={time} />
+          <button onClick={() => setPhase(1)}>New Game</button>
+        </div>
+        <div className={styles['header-col-2']}>
+          <h4>
+            Current: <ArticleLink article={current} />
+          </h4>
+          <h4>
+            Start: <ArticleLink article={start} />
+          </h4>
+          <h4>
+            Goal: <ArticleLink article={goal} />
+          </h4>
+        </div>
+      </div>
+      <button
+        disabled={path.length <= 1}
+        onClick={() => backUp()}
+      >
+        Go Back
+      </button>
+      <div className={styles['nodes-container']}>
         {nodes.map((node) => (
           <ArticleNode title={node} followNode={followNode} />
         ))}

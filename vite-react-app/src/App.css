@@ -86,13 +86,6 @@
   gap: 40px;
 }
 
-.nodes-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
-  grid-gap: 1rem;
-}
-
 .article-node-wrapper {
   display: flex;
   flex-direction: column;

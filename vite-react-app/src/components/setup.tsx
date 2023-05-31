@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ArticleLink from './article-link';
+import styles from './setup.module.css';
 
 interface IProps {
   setPhase: (phase: number) => void;
@@ -27,7 +28,7 @@ export default function Setup({ setPhase, setPoles }: IProps) {
   return (
     <>
       <div className="setup-wrapper">
-        <div>
+        <div className={styles.column}>
           <h1>Start</h1>
           <h3>
             {start === '' ? (
@@ -61,7 +62,7 @@ export default function Setup({ setPhase, setPoles }: IProps) {
             Submit
           </button>
         </div>
-        <div>
+        <div className={styles.column}>
           <h1>End</h1>
           <h3>
             {end === '' ? 'Select End Article' : <ArticleLink article={end} />}

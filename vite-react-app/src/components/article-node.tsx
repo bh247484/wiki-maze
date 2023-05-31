@@ -1,4 +1,6 @@
 import ArticleLink from './article-link';
+import MazeSvg from './maze-svg';
+import styles from './article-node.module.css';
 
 interface IProps {
   title: string;
@@ -7,9 +9,14 @@ interface IProps {
 
 export default function ArticleNode({ title, followNode }: IProps) {
   return (
-    <div className="article-node-wrapper">
+    <div className={styles.wrapper}>
       <ArticleLink article={title} />
-      <button onClick={() => followNode(title)}>Follow Node</button>
+      <button
+        className={styles.button}
+        onClick={() => followNode(title)}
+      >
+        <MazeSvg/>
+      </button>
     </div>
   );
 }

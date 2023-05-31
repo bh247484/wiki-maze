@@ -6,7 +6,7 @@ interface IProps {
 
 export default function ArticleLink({ article }: IProps) {
   return (
-    <a className="article-link" href={articleUrl(article)}>
+    <a className="article-link" href={articleUrl(article)} target="_blank">
       {canonizeTitle(article)}
     </a>
   );

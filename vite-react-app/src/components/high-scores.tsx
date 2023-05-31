@@ -113,6 +113,7 @@ export default function HighScores({ finalPath, setPhase, strokes, time }: IProp
   if (subPhase === 'show-scores') {
     return(
       <div className="high-scores-wrapper">
+        <h1>High Scores</h1>
         {
           highScores.map(({ name, path, seconds, strokes }) => (
             <div className="score-wrapper">

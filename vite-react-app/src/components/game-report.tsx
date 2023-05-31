@@ -1,5 +1,6 @@
 import { canonizeTitle } from '../utils/utils';
 import Clock from './clock';
+import styles from './game-report.module.css';
 
 interface IProps {
   finalPath: string[];
@@ -16,17 +17,21 @@ export default function GameReport({ finalPath, setPhase, strokes, time }: IProp
         Cleared in <Clock time={time} />
       </h2>
       <h2>Total Strokes: {strokes}</h2>
-      <h3>Here's Your Path to Victory</h3>
-      <h3>
+      <p>Stroke Formula</p>
+      <p>Total steps + stroke time penalty for every 30 seconds.</p>
+      <h4>Here's Your Path to Victory</h4>
+      <h4>
         You reached the goal in {finalPath.length - 1} total
         {finalPath.length - 1 === 1 ? ' step' : ' steps'}.
-      </h3>
-      {finalPath.map((articleTitle, index) => (
-        <>
-          <p>{canonizeTitle(articleTitle)}</p>
-          {index !== finalPath.length - 1 ? <p>↓</p> : null}
-        </>
-      ))}
+      </h4>
+      <div className={styles.path}>
+        {finalPath.map((articleTitle, index) => (
+          <>
+            <p>{canonizeTitle(articleTitle)}</p>
+            {index !== finalPath.length - 1 ? <p>↓</p> : null}
+          </>
+        ))}
+      </div>
       <button onClick={() => setPhase(4)}>See High Scores</button>
     </div>
   );
