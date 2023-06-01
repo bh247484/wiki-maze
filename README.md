@@ -2,7 +2,7 @@
 
 It's a trivia maze game built with React/Typescript, ASP.NET (C#), and Postgres. You start at one Wikipedia page and make your way to another using only related links. Related articles are fetched from Wikipedia's publicly available web api.
 
-
+https://github.com/bh247484/wiki-maze/assets/57693937/7c8cdd9e-e704-410a-8f83-dff47c4949c8
 
 # How to spin up locally
 1. Have local Docker installation.
