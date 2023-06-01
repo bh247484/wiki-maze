@@ -1,5 +1,5 @@
 import ArticleLink from '../article-link';
-import MazeIcon from '../maze-icon';
+import TargetIcon from '../target-icon';
 import styles from './article-node.module.css';
 
 interface IProps {
@@ -15,7 +15,7 @@ export default function ArticleNode({ title, followNode }: IProps) {
         className={styles.button}
         onClick={() => followNode(title)}
       >
-        <MazeIcon/>
+        <TargetIcon/>
       </button>
     </div>
   );
