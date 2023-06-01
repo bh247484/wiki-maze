@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import ArticleLink from './article-link';
-import Clock from './clock';
+import ArticleLink from '../article-link';
+import Clock from '../clock';
 import styles from './high-scores.module.css';
 
 interface IProps {

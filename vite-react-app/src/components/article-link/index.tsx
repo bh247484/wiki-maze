@@ -1,4 +1,4 @@
-import { articleUrl, canonizeTitle } from '../utils/utils';
+import { articleUrl, canonizeTitle } from '../../utils/utils';
 
 interface IProps {
   article: string;

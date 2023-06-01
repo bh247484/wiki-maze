@@ -1,6 +1,5 @@
-import { canonizeTitle } from '../utils/utils';
-import ArticleLink from './article-link';
-import Clock from './clock';
+import ArticleLink from '../article-link';
+import Clock from '../clock';
 import styles from './game-report.module.css';
 
 interface IProps {
@@ -20,8 +19,6 @@ export default function GameReport({ finalPath, setPhase, strokes, time }: IProp
       </p>
       <h3>Total Strokes: {strokes}</h3>
       <p className={styles.minip}>Strokes formula: Total steps plus 1 for every 30 seconds taken.</p>
-      {/* <p>Stroke Formula</p>
-      <p>Total steps + stroke time penalty for every 30 seconds.</p> */}
       <h4>Path to Victory</h4>
       <div className={styles.path}>
         {finalPath.map((articleTitle, index) => (

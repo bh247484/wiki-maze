@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ArticleLink from './article-link';
+import ArticleLink from '../article-link';
 import styles from './setup.module.css';
 
 interface IProps {

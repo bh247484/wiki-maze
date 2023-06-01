@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import ArticleLink from './article-link';
-import ArticleNode from './article-node';
-import Clock from './clock';
-import { calculateStrokes } from '../utils/utils';
+import ArticleLink from '../article-link';
+import ArticleNode from '../article-node';
+import Clock from '../clock';
+import { calculateStrokes } from '../../utils/utils';
 import styles from './trial.module.css';
 
 interface IProps {
