@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useInterval from './utils/useInterval';
 import './App.css';
 import Setup from './components/setup';
@@ -19,6 +19,11 @@ function App() {
     },
     phase === 2 ? 1000 : null
   );
+
+  // Reset clock if phase 1.
+  useEffect(() => {
+    if (phase === 1) setTime(0);
+  }, [phase])
 
   return (
     <div className="App">
