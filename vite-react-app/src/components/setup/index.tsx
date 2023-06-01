@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ArticleLink from '../article-link';
 import styles from './setup.module.css';
+import MazeIcon from '../maze-icon';
 
 interface IProps {
   setPhase: (phase: number) => void;
@@ -27,6 +28,7 @@ export default function Setup({ setPhase, setPoles }: IProps) {
 
   return (
     <>
+      <h1 className={styles.banner}><MazeIcon/> Wiki Maze</h1>
       <div className="setup-wrapper">
         <div className={styles.column}>
           <h1>Start</h1>
