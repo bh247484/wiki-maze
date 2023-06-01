@@ -79,7 +79,7 @@ export default function HighScores({ finalPath, setPhase, strokes, time }: IProp
 
   // Check if new high score.
   useEffect(() => {
-    if (!loading && highScores.length > 0) {
+    if (!loading) {
       if (highScores.length < 10 || strokes < highScores[highScores.length - 1].strokes) {
         setSubPhase('new-high-score');
       } else {
