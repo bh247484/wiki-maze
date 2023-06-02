@@ -1,6 +1,6 @@
 # What is it?
 
-It's a trivia maze game built with React/Typescript, ASP.NET (C#), and Postgres. The player begins at one Wikipedia article and makes their way to goal article using only related links. Related article links are fetched from Wikipedia's publicly available web api.
+It's a trivia maze game built with React/Typescript, ASP.NET (C#), and Postgres. The player begins at one Wikipedia article and makes their way to the goal article using only related links. Related article links are fetched from Wikipedia's publicly available web api.
 
 https://github.com/bh247484/wiki-maze/assets/57693937/7c8cdd9e-e704-410a-8f83-dff47c4949c8
 
